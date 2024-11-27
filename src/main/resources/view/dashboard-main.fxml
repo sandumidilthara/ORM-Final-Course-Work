@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="496.0" prefWidth="578.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.DashBoardFormController">
+    <children>
+        <Label alignment="CENTER" layoutX="75.0" layoutY="26.0" prefHeight="70.0" prefWidth="496.0" text="CULINARY ACADEMY" textAlignment="CENTER" textFill="#3ba9bf">
+            <font>
+                <Font name="System Bold" size="47.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="imgCustomer" fitHeight="80.0" fitWidth="80.0" layoutX="108.0" layoutY="165.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assests/images/images/students.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <ImageView fx:id="imgItem" fitHeight="80.0" fitWidth="80.0" layoutX="278.0" layoutY="165.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assests/images/images/courses.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <ImageView fx:id="imgOrder" fitHeight="80.0" fitWidth="80.0" layoutX="437.0" layoutY="165.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assests/images/images/registartion.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <ImageView fx:id="imgSupplier" fitHeight="80.0" fitWidth="80.0" layoutX="358.0" layoutY="271.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assests/images/images/icons8-customer-48.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Separator layoutX="29.0" layoutY="123.0" prefHeight="0.0" prefWidth="542.0" />
+        <Label fx:id="lblMenu" alignment="CENTER" layoutX="29.0" layoutY="385.0" prefHeight="26.0" prefWidth="577.0" text="Welcome" textAlignment="CENTER" textFill="#0a39f7">
+            <font>
+                <Font name="DejaVu Sans Mono Bold" size="22.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblDescription" alignment="CENTER" layoutX="22.0" layoutY="425.0" prefHeight="16.0" prefWidth="577.0" text="select option">
+            <font>
+                <Font name="Ubuntu" size="12.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="imgSupplierDetails" fitHeight="80.0" fitWidth="80.0" layoutX="177.0" layoutY="271.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assests/images/images/users.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Label layoutX="92.0" layoutY="95.0" text="&quot;Shaping future chefs through expert culinary training.&quot;">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </Label>
+      <ImageView id="imgHome" fitHeight="53.0" fitWidth="55.0" layoutX="22.0" layoutY="35.0" onMouseClicked="#navigrateToHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/images/images/home.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+    </children>
+</AnchorPane>

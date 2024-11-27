@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anpChangePassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="654.0" style="-fx-background-color: white; -fx-background-color: #c7ecee;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.userSettingFormController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="654.0">
+            <fill>
+                <LinearGradient endX="0.04807692307692308" endY="0.7115384615384616">
+                    <stops>
+                        <Stop color="#1598d6" />
+                        <Stop color="WHITE" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill></Rectangle>
+        <ImageView id="imgHome" fitHeight="53.0" fitWidth="55.0" layoutX="22.0" layoutY="16.0" onMouseClicked="#navigrateToHome" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assests/images/images/home.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Label layoutX="95.0" layoutY="24.0" text="User Setting">
+            <font>
+                <Font name="Ubuntu" size="27.0" />
+            </font>
+        </Label>
+        <ImageView id="imgHome" fitHeight="53.0" fitWidth="55.0" layoutX="281.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assests/images/images/users.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+      <AnchorPane layoutX="171.0" layoutY="152.0" prefHeight="330.0" prefWidth="361.0" style="-fx-background-color: C6E7FF;">
+         <children>
+            <TextField fx:id="txtSearch" layoutX="77.0" layoutY="32.0" onAction="#txtSearchOnAction" onKeyReleased="#txtUserNameOnKeyReleased" prefHeight="35.0" prefWidth="220.0" promptText="search username" style="-fx-background-radius: 5;" />
+            <TextField fx:id="txtContact1" layoutX="77.0" layoutY="89.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="35.0" prefWidth="220.0" promptText="contact" style="-fx-background-radius: 5;" />
+            <TextField fx:id="txtConfirmPassword" layoutX="77.0" layoutY="262.0" onKeyReleased="#txtConfirmOnKeyReleased" prefHeight="35.0" prefWidth="220.0" promptText="confirm password" style="-fx-background-radius: 5;" />
+            <TextField fx:id="txtRole" layoutX="77.0" layoutY="154.0" onKeyReleased="#txtRoleOnKeyReleased" prefHeight="35.0" prefWidth="220.0" promptText="role" style="-fx-background-radius: 5;" />
+            <TextField fx:id="txtNewPassword" layoutX="77.0" layoutY="209.0" onKeyReleased="#txtNewOnKeyReleased" prefHeight="35.0" prefWidth="220.0" promptText="new password" style="-fx-background-radius: 5;" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnPasswordReset" layoutX="169.0" layoutY="500.0" mnemonicParsing="false" onAction="#btnPasswordResetOnAction" prefHeight="35.0" prefWidth="355.0" style="-fx-background-color: #006A67;" text="Update Password" textFill="#ecdede">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+
+    </children>
+</AnchorPane>

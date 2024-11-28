@@ -126,9 +126,8 @@ public class studentFormController {
 
     StudentBo studentBo = (StudentBo) BoFactory.getBoFactory().getBoType(BoFactory.BoType.STUDENT);
     ProgramBo courseBo = (ProgramBo) BoFactory.getBoFactory().getBoType(PROGRAM);
-   // UserBo userBo = (UserBo) BoFactory.getBoFactory().getBoType(BoFactory.BoType.USER);
-    ProgramDao courseDao = (ProgramDao) DaoFactory.getDaoFactory().getDaoType(DaoFactory.DaoType.COURSE);
-    UserDao userDao = (UserDao) DaoFactory.getDaoFactory().getDaoType(DaoFactory.DaoType.USER);
+
+
     StudentDao studentDao = (StudentDao) DaoFactory.getDaoFactory().getDaoType(DaoFactory.DaoType.STUDENT);
     ObservableList<StudentTm> studentTmObservableList = FXCollections.observableArrayList();
     ArrayList<Program> courseArrayList = new ArrayList<>();
@@ -138,14 +137,11 @@ public class studentFormController {
         generateNewId();
         getAllCourses();
         setCourseId();
-        //setUserId();
         getAllStudents();
-//        setDate();
         setCellValueFactory();
         setTable();
-        //filterStudent();
         selectTableRow();
-        // clearFields();
+
     }
 
     private void getAllStudents() throws IOException {
@@ -164,7 +160,7 @@ public class studentFormController {
         colName.setCellValueFactory(new PropertyValueFactory<>("stu_name"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("stu_address"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("stu_phone"));
-       // colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+
     }
 
     private void setTable() throws IOException {
@@ -176,7 +172,7 @@ public class studentFormController {
                     student.getStu_name(),
                     student.getStu_address(),
                     student.getStu_phone()
-                   // student.getDate()
+
             );
             studentTmObservableList.add(studentTm);
         }
@@ -194,10 +190,7 @@ public class studentFormController {
         });
     }
 
-//    private void setDate() {
-//        LocalDate now = LocalDate.now();
-//        txtDate.setText(String.valueOf(now));
-//    }
+
 
     private String generateNewId() throws IOException {
         String nextId = studentDao.getCurrentId();
@@ -208,13 +201,11 @@ public class studentFormController {
     private void clearFields() {
         txtADDRESS.clear();
         txtCONTACT.clear();
-        //txtDate.clear();
         txtID.clear();
         txtNAME.clear();
-       // txtSearch.clear();
         txtFree.clear();
         txtcourseName.clear();
-       // txtSearch.clear();
+
     }
 
 
@@ -253,11 +244,11 @@ public class studentFormController {
         String studentId = txtID.getText();
         Student existingStudent = studentDao.getStudentById(studentId);
 
-        // If the student already exists, register them for the new course
+
         if (existingStudent != null) {
             registerStudentForCourse(existingStudent);
         } else {
-            // Create and save a new student if not found
+
 
 
             StudentDto studentDto = new StudentDto();
@@ -284,7 +275,7 @@ public class studentFormController {
         String courseId = comboCourse.getValue();
         Program selectedCourse = null;
 
-        // Find the course by ID
+
         for (Program course : courseArrayList) {
             if (course.getCourse_id().equals(courseId)) {
                 selectedCourse = course;
@@ -293,14 +284,14 @@ public class studentFormController {
         }
 
         if (selectedCourse != null) {
-            // Check if the student is already registered for this course
+
             if (!studentDao.isStudentRegisteredForCourse(student.getStu_id(), courseId)) {
                 Studnet_Course studentCourse = new  Studnet_Course();
                 studentCourse.setStudent(student);
                 studentCourse.setCourse(selectedCourse);
                 studentCourse.setRegistration_date(new java.util.Date());
 
-                // Save the student-course relationship
+
                 studentDao.saveStudentCourseDetails(studentCourse);
             } else {
                 System.out.println("Student is already registered for this course.");
@@ -324,37 +315,6 @@ public class studentFormController {
         }
     }
 
-//    @FXML
-//    void comboUserOnAction(ActionEvent event) {
-//        String userId = comboUser.getValue();
-//        userBo.getUser(userId);
-//    }
-
-//    private void filterStudent() {
-//        FilteredList<StudentTm> filterData = new FilteredList<>(studentTmObservableList, e -> true);
-//
-//        txtSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
-//            filterData.setPredicate(student -> {
-//                if (newValue == null || newValue.isEmpty() || newValue.isBlank()) {
-//                    return true;
-//                }
-//
-//                String searchKeyword = newValue.toLowerCase();
-//                if (student.getStu_id().toLowerCase().contains(searchKeyword)) {
-//                    return true;
-//                } else if (student.getStu_phone().toLowerCase().contains(searchKeyword)) {
-//                    return true;
-//                } else if (student.getStu_name().toLowerCase().contains(searchKeyword)) {
-//                    return true;
-//                }
-//                return false;
-//            });
-//        });
-//
-//        SortedList<StudentTm> studentTmSortedList = new SortedList<>(filterData);
-//        studentTmSortedList.comparatorProperty().bind(tblStudent.comparatorProperty());
-//        tblStudent.setItems(studentTmSortedList);
-//    }
 
     @FXML
     void txtAddressOnAction(ActionEvent event) {
@@ -388,19 +348,17 @@ public class studentFormController {
         String address = txtADDRESS.getText();
         String contact = txtCONTACT.getText();
 
-        // Retrieve the associated user (consider whether `id` or another identifier is used)
 
-        // Create a StudentDto object with the updated data
         StudentDto studentDto = new StudentDto(id, name, address, contact);
 
-        // Call the update method and display the appropriate message
+
         if (studentBo.update(studentDto)) {
             new Alert(Alert.AlertType.INFORMATION, "Student Updated Successfully").show();
         } else {
             new Alert(Alert.AlertType.ERROR, "Error updating student details").show();
         }
 
-        // Refresh the table and generate a new ID for subsequent operations
+
         setTable();
         generateNewId();
 

@@ -10,9 +10,9 @@ import java.util.List;
 public interface ProgramBo extends SuperBo {
 
 
-    public boolean save(ProgramDto courseDto) throws IOException;
-    public boolean update(ProgramDto courseDto) throws IOException;
-    public boolean delete(String id) throws IOException;
-    public ProgramDto getCourse(String id) throws IOException;
-    public List<Program> getCourseList() throws IOException;
+     boolean save(ProgramDto courseDto) throws IOException;
+     boolean update(ProgramDto courseDto) throws IOException;
+     boolean delete(String id) throws IOException;
+     ProgramDto getCourse(String id) throws IOException;
+     List<Program> getCourseList() throws IOException;
 }

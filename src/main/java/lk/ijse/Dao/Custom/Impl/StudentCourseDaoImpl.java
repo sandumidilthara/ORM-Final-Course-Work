@@ -2,7 +2,7 @@ package lk.ijse.Dao.Custom.Impl;
 
 import lk.ijse.Config.FactoryConfiguration;
 import lk.ijse.Dao.Custom.StudentCourseDao;
-import lk.ijse.Dao.SuperDao;
+
 import lk.ijse.Entity.Studnet_Course;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -61,17 +61,16 @@ public class StudentCourseDaoImpl implements StudentCourseDao {
                     ("SELECT * FROM student_course WHERE student_course_id = :id",  Studnet_Course.class);
             query.setParameter("id", value);
 
-            student_course = query.uniqueResult(); // Execute query and set the result to customer
-
-            transaction.commit(); // Commit the transaction if successful
+            student_course = query.uniqueResult();
+            transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback(); // Rollback transaction if an error occurs
+                transaction.rollback();
             }
-            e.printStackTrace(); // Log the exception for debugging
+            e.printStackTrace();
         } finally {
             if (session != null) {
-                session.close(); // Ensure session is closed
+                session.close();
             }
         }
 

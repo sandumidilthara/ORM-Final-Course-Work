@@ -2,9 +2,9 @@ package lk.ijse.Dao.Custom.Impl;
 
 import lk.ijse.Config.FactoryConfiguration;
 import lk.ijse.Dao.Custom.ProgramDao;
-import lk.ijse.Dao.SuperDao;
+
 import lk.ijse.Entity.Program;
-import lk.ijse.Entity.User;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
@@ -109,135 +109,135 @@ public class ProgramDaoImpl implements ProgramDao {
         return nextId;
     }
 
-    @Override
-    public List<String> getCourseId() {
-        Session session = null;
-        Transaction transaction = null;
-        List<String> courseIds = new ArrayList<>();
+//    @Override
+//    public List<String> getCourseId() {
+//        Session session = null;
+//        Transaction transaction = null;
+//        List<String> courseIds = new ArrayList<>();
+//
+//        try {
+//            session = FactoryConfiguration.getInstance().getSession();
+//            transaction = session.beginTransaction();
+//
+//            courseIds = session.createQuery("SELECT c.course_id FROM Program c", String.class).list();
+//
+//            transaction.commit();
+//        } catch (Exception e) {
+//            if (transaction != null) {
+//                transaction.rollback();
+//            }
+//            e.printStackTrace();
+//        } finally {
+//            if (session != null) {
+//                session.close();
+//            }
+//        }
+//        return courseIds;
+//    }
 
-        try {
-            session = FactoryConfiguration.getInstance().getSession();
-            transaction = session.beginTransaction();
-
-            courseIds = session.createQuery("SELECT c.course_id FROM Program c", String.class).list();
-
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        return courseIds;
-    }
-
-    @Override
-    public List<String> getCourseIds() {
-        Session session = null;
-        Transaction transaction = null;
-        List<String> courseIds = new ArrayList<>();
-
-        try {
-            session = FactoryConfiguration.getInstance().getSession();
-            transaction = session.beginTransaction();
-
-            courseIds = session.createQuery("SELECT c.course_id FROM Program c", String.class).list();
-
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        return courseIds;
-    }
-
-    @Override
-    public Program getCourseById(String courseId) {
-        Session session = null;
-        Transaction transaction = null;
-        Program course = null;
-
-        try {
-            session = FactoryConfiguration.getInstance().getSession();
-            transaction = session.beginTransaction();
-
-            NativeQuery<Program> query = session.createNativeQuery("SELECT * FROM program WHERE course_id = :id", Program.class);
-            query.setParameter("id", courseId);
-
-            course = query.uniqueResult(); // Execute query and set the result to customer
-
-            transaction.commit(); // Commit the transaction if successful
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback(); // Rollback transaction if an error occurs
-            }
-            e.printStackTrace(); // Log the exception for debugging
-        } finally {
-            if (session != null) {
-                session.close(); // Ensure session is closed
-            }
-        }
-
-        return course;
-    }
-
-    @Override
-    public int getProgramCount() {
-        int courseCount = 0;
-        Session session = null;
-
-        try {
-            // Get the session from the factory
-            session = FactoryConfiguration.getInstance().getSession();
-            session.beginTransaction();
-
-            // HQL query to count the number of courses
-            String hql = "SELECT COUNT(c) FROM Program   c";
-            Query<Long> query = session.createQuery(hql, Long.class);
-
-            // Get the result and cast to int
-            Long countResult = query.uniqueResult();
-            if (countResult != null) {
-                courseCount = countResult.intValue();
-            }
-
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            if (session != null && session.getTransaction() != null) {
-                session.getTransaction().rollback();
-            }
-            e.printStackTrace(); // For debugging
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-
-        return courseCount;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+//    @Override
+//    public List<String> getCourseIds() {
+//        Session session = null;
+//        Transaction transaction = null;
+//        List<String> courseIds = new ArrayList<>();
+//
+//        try {
+//            session = FactoryConfiguration.getInstance().getSession();
+//            transaction = session.beginTransaction();
+//
+//            courseIds = session.createQuery("SELECT c.course_id FROM Program c", String.class).list();
+//
+//            transaction.commit();
+//        } catch (Exception e) {
+//            if (transaction != null) {
+//                transaction.rollback();
+//            }
+//            e.printStackTrace();
+//        } finally {
+//            if (session != null) {
+//                session.close();
+//            }
+//        }
+//        return courseIds;
+//    }
+//
+//    @Override
+//    public Program getCourseById(String courseId) {
+//        Session session = null;
+//        Transaction transaction = null;
+//        Program course = null;
+//
+//        try {
+//            session = FactoryConfiguration.getInstance().getSession();
+//            transaction = session.beginTransaction();
+//
+//            NativeQuery<Program> query = session.createNativeQuery("SELECT * FROM program WHERE course_id = :id", Program.class);
+//            query.setParameter("id", courseId);
+//
+//            course = query.uniqueResult(); // Execute query and set the result to customer
+//
+//            transaction.commit(); // Commit the transaction if successful
+//        } catch (Exception e) {
+//            if (transaction != null) {
+//                transaction.rollback(); // Rollback transaction if an error occurs
+//            }
+//            e.printStackTrace(); // Log the exception for debugging
+//        } finally {
+//            if (session != null) {
+//                session.close(); // Ensure session is closed
+//            }
+//        }
+//
+//        return course;
+//    }
+//
+//    @Override
+//    public int getProgramCount() {
+//        int courseCount = 0;
+//        Session session = null;
+//
+//        try {
+//            // Get the session from the factory
+//            session = FactoryConfiguration.getInstance().getSession();
+//            session.beginTransaction();
+//
+//            // HQL query to count the number of courses
+//            String hql = "SELECT COUNT(c) FROM Program   c";
+//            Query<Long> query = session.createQuery(hql, Long.class);
+//
+//            // Get the result and cast to int
+//            Long countResult = query.uniqueResult();
+//            if (countResult != null) {
+//                courseCount = countResult.intValue();
+//            }
+//
+//            session.getTransaction().commit();
+//        } catch (Exception e) {
+//            if (session != null && session.getTransaction() != null) {
+//                session.getTransaction().rollback();
+//            }
+//            e.printStackTrace(); // For debugging
+//        } finally {
+//            if (session != null) {
+//                session.close();
+//            }
+//        }
+//
+//        return courseCount;
+//    }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 

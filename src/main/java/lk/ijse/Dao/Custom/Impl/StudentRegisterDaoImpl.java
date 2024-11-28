@@ -2,7 +2,7 @@ package lk.ijse.Dao.Custom.Impl;
 
 import lk.ijse.Config.FactoryConfiguration;
 import lk.ijse.Dao.Custom.StudentRegisterDao;
-import lk.ijse.Dao.SuperDao;
+
 import lk.ijse.Entity.Student_Register;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

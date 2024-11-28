@@ -15,9 +15,7 @@ public interface UserDao  extends CrudDao<User> {
 
     String getCurrentId() throws IOException;
 
-    List<String> getUserId();
 
-    User getUserById(String value);
     boolean checkCredential(String username, String password);
 
     boolean updateUser(User user);

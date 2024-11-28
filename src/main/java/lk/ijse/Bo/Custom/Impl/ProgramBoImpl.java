@@ -1,7 +1,7 @@
 package lk.ijse.Bo.Custom.Impl;
 
 import lk.ijse.Bo.Custom.ProgramBo;
-import lk.ijse.Bo.SuperBo;
+
 import lk.ijse.Dao.Custom.ProgramDao;
 import lk.ijse.Dao.DaoFactory;
 import lk.ijse.Dto.ProgramDto;

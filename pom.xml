@@ -89,6 +89,7 @@
                         <configuration>
                             <mainClass>
                                 com.example.layeredarchitecture/lk.ijse.ceylontool.AppInitializer
+
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

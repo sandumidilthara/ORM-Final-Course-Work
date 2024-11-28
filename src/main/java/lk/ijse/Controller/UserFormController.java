@@ -104,7 +104,7 @@ public class UserFormController {
         setTable();
         selectTableRow();
         generateNewId();
-        //filterUser();
+
     }
 
     private String generateNewId() throws IOException {
@@ -196,7 +196,7 @@ public class UserFormController {
 
         String contact = txtContact.getText();
 
-        // Hash the password using BCrypt
+
         String hashedPassword = BCrypt.hashpw(rawPassword, BCrypt.gensalt());
 
         UserDto userDto = new UserDto(id, username, hashedPassword,  contact, role);

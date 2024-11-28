@@ -1,11 +1,11 @@
 package lk.ijse.Dao.Custom.Impl;
 
 import lk.ijse.Dao.Custom.StudentDao;
-import lk.ijse.Entity.Program;
+
 import lk.ijse.Entity.Student;
 import lk.ijse.Entity.Studnet_Course;
 import lk.ijse.Config.FactoryConfiguration;
-import lk.ijse.Entity.User;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
@@ -35,12 +35,12 @@ public class StudentDaoImpl implements StudentDao {
 
         try {
             transaction = session.beginTransaction();
-            session.update(student);  // Use update() for updating existing records
+            session.update(student);
             transaction.commit();
             isUpdated = true;
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();  // Rollback transaction on error
+                transaction.rollback();
             }
             e.printStackTrace();
         } finally {
@@ -151,13 +151,13 @@ public class StudentDaoImpl implements StudentDao {
         Session session = FactoryConfiguration.getInstance().getSession();
 
         try {
-            // Create the query to check if the student-course combination exists
+
             String hql = "SELECT 1 FROM Studnet_Course sc WHERE sc.student.stu_id = :stuId AND sc.course.course_id = :courseId";
             Query query = session.createQuery(hql);
             query.setParameter("stuId", stuId);
             query.setParameter("courseId", courseId);
 
-            // Check if the query returns any results
+
             isRegistered = query.uniqueResult() != null;
         } catch (Exception e) {
             e.printStackTrace();
@@ -169,10 +169,10 @@ public class StudentDaoImpl implements StudentDao {
     }
 
 
-    @Override
-    public int getStudentCount() {
-        return 0;
-    }
+//    @Override
+//    public int getStudentCount() {
+//        return 0;
+//    }
 
 
 }

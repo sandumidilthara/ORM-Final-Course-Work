@@ -44,10 +44,6 @@ public class UserBoImpl implements UserBo {
         return userDao.delete(id);
     }
 
-    @Override
-    public UserDto getUser(String id) {
-        return null;
-    }
 
     @Override
     public List<User> getUserList() throws IOException {

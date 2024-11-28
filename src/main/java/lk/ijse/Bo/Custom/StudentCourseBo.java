@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface StudentCourseBo {
 
-    public List<Studnet_Course> getStudentCourseList() throws IOException;
+      List<Studnet_Course> getStudentCourseList() throws IOException;
 }

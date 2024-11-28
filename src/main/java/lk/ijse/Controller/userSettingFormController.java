@@ -98,17 +98,16 @@ public class  userSettingFormController {
         String confirmPassword = txtConfirmPassword.getText();
 
         if (newPassword.equals(confirmPassword)) {
-            // Hash the password using BCrypt
+
             String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
 
-            // Find the user based on the search field
             String username = txtSearch.getText();
             for (User user : observableUserList) {
                 if (user.getUsername().equalsIgnoreCase(username)) {
-                    // Update the user's password
+
                     user.setPassword(hashedPassword);
 
-                    // Save the updated user to the database
+
                     if (userDao.updateUser(user)) {
                         new Alert(Alert.AlertType.INFORMATION, "Password updated successfully!").show();
                         clearPasswordFields();

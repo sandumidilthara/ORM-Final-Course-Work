@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface StudentBo extends SuperBo {
 
-    public boolean save(StudentDto studentDto) throws IOException;
-    public boolean update(StudentDto studentDto) throws IOException;
-    public boolean delete(String id) throws IOException;
-    public StudentDto getStudent(String id);
-    public List<Student> getStudentList() throws IOException;
+     boolean save(StudentDto studentDto) throws IOException;
+     boolean update(StudentDto studentDto) throws IOException;
+      boolean delete(String id) throws IOException;
+
+     List<Student> getStudentList() throws IOException;
 
 }

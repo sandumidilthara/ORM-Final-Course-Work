@@ -250,14 +250,14 @@ public class studentCourseRegisterFormController {
        StudentRegisterDto paymentDto = new  StudentRegisterDto();
         paymentDto.setPay_id(txtId.getText());
         paymentDto.setStatus(txtStatus.getText());
-        paymentDto.setBalance_amount(selectedPayment.getBalance_amount()); // Use value from the selected item
+        paymentDto.setBalance_amount(selectedPayment.getBalance_amount());
         paymentDto.setPay_amount(Double.parseDouble(txtPayAmount.getText()));
         paymentDto.setPay_date(txtDate.getText());
         paymentDto.setStudent_course(studentCourse);
 
         paymentBo.savePayment(paymentDto);
 
-        new Alert(Alert.AlertType.INFORMATION, "Payment saved successfully").show();
+        new Alert(Alert.AlertType.INFORMATION, "Student Registered successfully").show();
 
     }
 
@@ -267,12 +267,12 @@ public class studentCourseRegisterFormController {
         String selectedStudentId = comboStudent.getValue();
 
         for (Studnet_Course studentCourse : studentCourseArrayList) {
-            // Check if both the student ID and course name match
+
             if (selectedStudentId != null && selectedCourseName != null &&
                     selectedStudentId.equals(studentCourse.getStudent().getStu_id()) &&
                     selectedCourseName.equals(studentCourse.getCourse().getCourse_name())) {
 
-                // Display course fee and student_course_id
+
                  txtCoursefee.setText(String.valueOf(studentCourse.getCourse().getCourse_fee()));
                 txtStuCouDetail.setText(String.valueOf(studentCourse.getStudent_course_id()));
 

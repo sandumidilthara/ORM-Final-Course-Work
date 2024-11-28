@@ -1,7 +1,7 @@
 package lk.ijse.Bo.Custom.Impl;
 
 import lk.ijse.Bo.Custom.StudentRegisterBo;
-import lk.ijse.Bo.SuperBo;
+
 import lk.ijse.Dao.Custom.StudentRegisterDao;
 import lk.ijse.Dao.DaoFactory;
 import lk.ijse.Dto.StudentRegisterDto;

@@ -9,11 +9,11 @@ import java.util.List;
 
 public interface UserBo extends SuperBo {
 
-    public boolean save(UserDto userDto) throws IOException;
-    public boolean update(UserDto userDto) throws IOException;
-    public boolean delete(String id) throws IOException;
-    public UserDto getUser(String id);
-    public List<User> getUserList() throws IOException;
+     boolean save(UserDto userDto) throws IOException;
+   boolean update(UserDto userDto) throws IOException;
+     boolean delete(String id) throws IOException;
+
+     List<User> getUserList() throws IOException;
 
 
 }

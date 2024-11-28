@@ -2,12 +2,12 @@ package lk.ijse.Bo.Custom.Impl;
 
 
 import lk.ijse.Bo.Custom.StudentBo;
-import lk.ijse.Bo.SuperBo;
+
 import lk.ijse.Dao.Custom.StudentDao;
 import lk.ijse.Dao.DaoFactory;
-import lk.ijse.Dto.ProgramDto;
+
 import lk.ijse.Dto.StudentDto;
-import lk.ijse.Entity.Program;
+
 import lk.ijse.Entity.Student;
 
 import java.io.IOException;
@@ -52,10 +52,7 @@ public class StudentBoImpl implements StudentBo {
         return studentDao.delete(id);
     }
 
-    @Override
-    public StudentDto getStudent(String id) {
-        return null;
-    }
+
 
     @Override
     public List<Student> getStudentList() throws IOException {

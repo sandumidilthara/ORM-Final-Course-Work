@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class adminRegistrationFormController {
+public class coordinatorDashboardFormController {
 
 
     @FXML
@@ -41,12 +41,8 @@ public class adminRegistrationFormController {
 
     @FXML
     private ImageView imgSupplier;
-    public void initialize(URL url, ResourceBundle rb) {
-        FadeTransition fadeIn = new FadeTransition(Duration.millis(2000), root);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-        fadeIn.play();
-    }
+
+
 
     @FXML
     private void playMouseExitAnimation(MouseEvent event) {

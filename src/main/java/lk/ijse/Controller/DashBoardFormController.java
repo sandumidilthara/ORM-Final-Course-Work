@@ -1,6 +1,6 @@
 package lk.ijse.Controller;
 
-import com.jfoenix.controls.JFXButton;
+
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
@@ -18,11 +18,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import lk.ijse.Dao.Custom.UserDao;
-import lk.ijse.Dao.DaoFactory;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
+
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -76,12 +74,7 @@ public class DashBoardFormController {
     /**
      * Initializes the controller class.
      */
-    public void initialize(URL url, ResourceBundle rb) {
-        FadeTransition fadeIn = new FadeTransition(Duration.millis(2000), root);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-        fadeIn.play();
-    }
+
 
     @FXML
     private void playMouseExitAnimation(MouseEvent event) {
@@ -205,49 +198,6 @@ roots = FXMLLoader.load(this.getClass().getResource("/view/user-setting.fxml"));
     }
 
 // 
-    public void setAccess(String userRole) {
-        lblCurrent.setText(userRole);
-
-        // Reset all access to false initially
-        userAllowed = false;
-        studentAllowed = false;
-        paymentAllowed = false;
-        programAllowed = false;
-        settingsAllowed = false;
-
-        if (userRole != null) {
-            System.out.println("userRole: " + userRole);
-
-            switch (userRole) {
-                case "Admin":
-                    userAllowed = true;
-                    studentAllowed = true;
-                    paymentAllowed = true;
-                    programAllowed = true;
-                    settingsAllowed = true;
-                    break;
-
-                case "Coordinator":
-                    studentAllowed = true;
-                    break;
-
-                default:
-                    // No access for other roles
-                    break;
-            }
-
-            // Enable or disable buttons based on access levels
-            imgCustomer.setDisable(!userAllowed);
-            imgItem.setDisable(!studentAllowed);
-            imgOrder.setDisable(!paymentAllowed);
-            imgSupplier.setDisable(!programAllowed);
-            imgSupplierDetails.setDisable(!settingsAllowed);
-        } else {
-            lblCurrent.setText("No role assigned");
-        }
-    }
-
-
 
 
     }

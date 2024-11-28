@@ -11,10 +11,10 @@ public interface ProgramDao extends CrudDao<Program> {
 
     String getCurrentId() throws IOException;
 
-    List<String> getCourseId();
-
-    List<String> getCourseIds();
-
-    Program getCourseById(String courseId);
-    int getProgramCount();
+//    List<String> getCourseId();
+//
+//    List<String> getCourseIds();
+//
+//    Program getCourseById(String courseId);
+//    int getProgramCount();
 }
